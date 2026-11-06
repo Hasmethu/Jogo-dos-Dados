@@ -1,3 +1,4 @@
+/// Ainda em desenvolvimento. O programa ainda está em progresso, e o código atual apenas retorna 10 valores aleatórios!!
 #include <stdio.h>
 #include <stdlib.h>
 
