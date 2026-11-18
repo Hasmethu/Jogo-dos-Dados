@@ -112,11 +112,3 @@ No Linux:
 🚧 Em desenvolvimento.
 
 Novas melhorias e funcionalidades poderão ser implementadas conforme a evolução do projeto.
-
-## 👨‍💻 Desenvolvedor
-
-Desenvolvido por **Matheus Alves**, estudante de Análise e Desenvolvimento de Sistemas, como um projeto pessoal para exercitar conhecimentos em programação e transformar uma ideia inspirada em uma obra de entretenimento em uma aplicação funcional.
-
----
-
-*Será que você vai conseguir afinar essa lira? Ou vai estourar suas cordas? Independente do resultado, estou ansioso por sua tentativa!! Boa sorte!!* 🎲
