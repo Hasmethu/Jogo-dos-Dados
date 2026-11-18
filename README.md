@@ -2,8 +2,6 @@
 
 Um jogo de raciocínio lógico desenvolvido em **linguagem C**, inspirado em uma mecânica apresentada em *Ordem Paranormal: A Vigília*. O objetivo final é descobrir uma sequência de valores secretos gerados pelo programa, utilizando tentativas e dicas indiretas.
 
-> **Status atual:** a estrutura inicial do jogo já está implementada. O projeto gera e armazena os valores secretos, permite escolher a dificuldade e apresenta um menu ao final dessa etapa. A entrada de palpites, a comparação e o sistema de dicas ainda estão planejados.
-
 ## Sobre o projeto
 
 A ideia é transformar uma mecânica de dedução envolvendo dados em um jogo independente. O programa utiliza valores de **1 a 4**, como os resultados possíveis de um dado de quatro lados (D4).
@@ -55,20 +53,7 @@ Jogo-dos-Dados/
 - **`menu.c`**: implementa os menus de seleção de dificuldade e de opções ao final da rodada.
 - **`menu.h`**: declara as funções de menu.
 
-## Tecnologias e conceitos praticados
-
-- Linguagem C;
-- Bibliotecas padrão (`stdio.h`, `stdlib.h` e `time.h`);
-- Geração de números pseudoaleatórios com `rand()` e `srand()`;
-- Vetores;
-- Funções e modularização em arquivos `.c` e `.h`;
-- Passagem de vetores como parâmetros;
-- Escopo de variáveis;
-- Estruturas condicionais (`switch` e `if/else`);
-- Estrutura de repetição (`while` e `for`);
-- Entrada e saída de dados com `scanf()` e `printf()`.
-
-## Como compilar e executar
+## Caso escolha compilar
 
 ### Requisitos
 
@@ -93,7 +78,7 @@ Execute no Linux:
 ./d4
 ```
 
-Também é possível utilizar um compilador online de C, como o GDB Online, copiando os arquivos-fonte do projeto.
+OBS: Também é possível utilizar um compilador online de C, como o GDB Online, copiando os arquivos-fonte do projeto.
 
 ## Próximas etapas
 
@@ -108,20 +93,6 @@ O planejamento atual é:
 5. Gerar dicas indiretas, indicando quantos valores estão acima ou abaixo dos valores secretos, sem revelar diretamente a posição correspondente.
 6. Verificar se a combinação foi descoberta e controlar a condição de vitória.
 7. Integrar o ciclo de tentativas ao fluxo principal e ajustar o menu final para o funcionamento completo da partida.
-
-## Histórico e aprendizados até aqui
-
-Durante o desenvolvimento, foi identificado um problema na geração dos números: a função responsável pelo sorteio era chamada dentro de um laço de interação, fazendo com que a combinação fosse gerada novamente a cada interação.
-
-A solução adotada foi gerar os valores uma vez por partida e armazená-los no vetor `secreto`, declarado em `main()`. Assim, a mesma combinação permanece disponível para as etapas seguintes daquela rodada.
-
-Esse processo também permitiu praticar:
-
-- criação e utilização de vetores;
-- escopo e organização de variáveis;
-- passagem de vetores para funções;
-- funções com retorno `void`;
-- separação do código em módulos.
 
 ## Estado do desenvolvimento
 
