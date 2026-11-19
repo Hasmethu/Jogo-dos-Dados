@@ -67,7 +67,11 @@ Jogo-dos-Dados/
 
 ## Como executar
 
-### Pré-requisitos
+- O executável presente no repositório dá inicio ao programa e já está compilado.
+
+### Caso queira compilar por conta própria
+
+## Pré-requisitos para compilação
 
 - Compilador C, como o GCC.
 - Terminal ou ambiente de desenvolvimento compatível.
@@ -122,4 +126,4 @@ Também é possível compilar e executar o projeto utilizando compiladores onlin
 
 ---
 
-> Projeto desenvolvido com o objetivo de consolidar conhecimentos em lógica de programação e linguagem C, evoluindo gradualmente para novas funcionalidades e interfaces.
+> Projeto desenvolvido com o objetivo de consolidar conhecimentos em lógica de programação e linguagem C, e me divertir com meu primeiro jogo criado.
