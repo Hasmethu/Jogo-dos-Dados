@@ -9,6 +9,7 @@ int escolherDificuldade()
     printf("1 - Normal: 3 numeros\n");
     printf("2 - Medio: 6 numeros\n");
     printf("3 - Dificil: 12 numeros\n");
+    printf("4 - Como se joga?\n");
     printf("Escolha: ");
 
     scanf("%d", &e);

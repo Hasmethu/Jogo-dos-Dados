@@ -23,6 +23,12 @@ int main()
     int baixo = 0;
     int limite = 0;
 
+    printf("\n|||=================================|                      |=================================|||\n");
+        printf("\n|||-------------------------------|   *** Jogo dos Dados ***   |-------------------------|\n");
+        printf("\n|||-------------------------|   <<<Seja muito bem-vindo(a)(e)!!!>>>   |-------------------------|\n");
+        printf("\n|||=============================|                            |=============================|||\n");
+
+        printf("\n");
     while (jogar)
     {
         int tent = 0;
@@ -45,22 +51,31 @@ int main()
             count = 12;
             limite = 8;
             break;
+        case 4:
+            printf("O jogo funciona da seguinte maneira: \n - O jogador seleciona uma das tres dificuldades; \n - O programa gera uma sequencia aleatoria de numeros entre 1 e 4; \n - O jogador informa seus palpites, preenchendo a sequencia de acordo com a dificuldade; \n - Apos cada tentativa, o programa informa quantos numeros estao acima, abaixo ou exatamente corretos em relacao a sequencia secreta, mas sem te revelar pra qual numero foi cada dica; \n - Com base nas dicas, o jogador deve deduzir a combinacao correta. \n - A partida termina quando a sequencia e descoberta ou quando todas as tentativas sao utilizadas; \n\n");
+            printf("\nPressione enter para continuar: ");
+            getchar();
+            getchar();
+            system("cls");
+            continue;
 
         default:
-            printf("Desculpe, esta dificuldade não é válida. Tente de novo com uma dificuldade válida!\n");
-            return 0;
+            printf("Desculpe, esta opcao nao e valida. Tente de novo com uma opcao valida!\n");
+            printf("\nPressione enter para continuar: ");
+            getchar();
+            getchar();
+            system("cls");
+            continue;
         }
         numAleatorio(min, max, count, secreto); // Declaração que envia para a função "numAleatorio" os valores com os quais ela deve trabalhar.
 
         system("cls");
-        printf("\n|||---------------------------------------------------------------------------------------------------|||");
-        // Loop temporário criado para testes, mostrando todos os valores presentes dentro do vetor "Secreto"
-        printf("\nNumeros armazenados na variavel 'secreto': \n");
-        for (p = 0; p < count; p++)
-        {
-            printf("%d ", secreto[p]);
-        }
-        printf("\n|||---------------------------------------------------------------------------------------------------|||\n");
+        printf("\n|||=================================|                   |=================================|\n");
+        printf("\n|||-------------------------|   <<<Bom jogo, e boa sorte!!!>>>   |-------------------------|\n");
+        printf("\n|||-----------------------------|                            |-----------------------------|||\n");
+        printf("\n|||========================|     <<Insira um valor de 1 e 4>>     |========================|||\n");
+
+        printf("\n");
         do
         {
 
@@ -135,7 +150,7 @@ int main()
                         strcat(mensagem, ", ");
                     }
 
-                    sprintf(auxiliar, "%d numeros estao certos", ac);
+                    sprintf(auxiliar, "%d numeros estao certos\n", ac);
                     strcat(mensagem, auxiliar);
                     primeiro = 0;
                 }
@@ -149,15 +164,20 @@ int main()
         } while (tent < limite && ac < count);
         if (ac == count)
         {
-            printf("Meus parabens, voce ganhou!!!");
-            printf("Pressione enter para voltar ao comeco");
+            printf("Meus parabens, voce ganhou!!!\n");
+            printf("Pressione enter para voltar ao comeco: \n");
             getchar();
             getchar();
         }
         else
         {
-            printf("Infelizmente nao foi dessa vez!!! Tente novamente!\n");
-            printf("Pressione enter para voltar ao comeco: ");
+            printf("A sequencia correta era:");
+            for (p = 0; p < count; p++)
+        {
+            printf("%d ", secreto[p]);
+        }
+            printf("\nInfelizmente nao foi dessa vez!!! Tente novamente!\n");
+            printf("Pressione enter para voltar ao comeco: \n");
             getchar();
             getchar();
         }
