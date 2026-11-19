@@ -20,11 +20,10 @@ int menuFinal()
 {
     int opcao;
 
-    printf("\n\n===== Selecione sua escolha abaixo =====\n");
+    printf("\n===== Selecione sua escolha abaixo =====\n");
     printf("1 - Jogar novamente\n");
-    printf("2 - Trocar dificuldade\n");
-    printf("3 - Sair\n");
-    printf("Escolha: ");
+    printf("0 - Sair\n");
+    printf("Escolha: \n");
 
     scanf("%d", &opcao);
 
