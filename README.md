@@ -1,114 +1,125 @@
 # 🎲 Jogo dos Dados
 
-Um jogo de raciocínio lógico desenvolvido em **linguagem C**, inspirado em uma mecânica apresentada em *Ordem Paranormal: A Vigília*. O objetivo final é descobrir uma sequência de valores secretos gerados pelo programa, utilizando tentativas e dicas indiretas.
+Um jogo de raciocínio lógico desenvolvido em **linguagem C**, inspirado em uma mecânica apresentada em *Ordem Paranormal: A Vigília*. O objetivo é descobrir uma sequência de números secretos gerados aleatoriamente, utilizando tentativas e dicas para deduzir a combinação correta.
 
 ## Sobre o projeto
 
-A ideia é transformar uma mecânica de dedução envolvendo dados em um jogo independente. O programa utiliza valores de **1 a 4**, como os resultados possíveis de um dado de quatro lados (D4).
+O Jogo dos Dados é um projeto desenvolvido para praticar lógica de programação, manipulação de vetores, funções, modularização, validação de entradas e controle de fluxo utilizando a linguagem C.
 
-A quantidade de valores secretos depende da dificuldade escolhida. Em versões futuras, o jogador deverá informar uma sequência de palpites e interpretar as dicas fornecidas pelo programa até descobrir a combinação.
+O jogador deve descobrir uma sequência de números entre **1 e 4**, cujos valores e quantidade variam conforme a dificuldade escolhida. A cada tentativa, o programa fornece informações sobre os palpites, permitindo que o jogador refine sua estratégia até encontrar a sequência correta ou esgotar as tentativas disponíveis.
 
-Além de desenvolver um jogo, este projeto é uma oportunidade de praticar lógica de programação, modularização e fundamentos da linguagem C.
+## Como funciona
 
-## Como o projeto funciona atualmente
+1. O jogador seleciona uma das três dificuldades.
+2. O programa gera uma sequência aleatória de números entre 1 e 4.
+3. O jogador informa seus palpites, preenchendo a sequência de acordo com a dificuldade.
+4. Após cada tentativa, o programa informa quantos números estão acima, abaixo ou exatamente corretos em relação à sequência secreta.
+5. Com base nas dicas, o jogador deve deduzir a combinação correta.
+6. A partida termina quando a sequência é descoberta ou quando todas as tentativas são utilizadas.
 
-O fluxo implementado neste estágio é:
-
-1. **Inicialização:** `srand(time(NULL))` inicializa o gerador de números pseudoaleatórios.
-2. **Escolha da dificuldade:** o jogador seleciona uma das três opções disponíveis.
-3. **Definição da quantidade:** a dificuldade determina quantos valores serão gerados.
-4. **Geração dos valores secretos:** a função `numAleatorio()` preenche o vetor `secreto`.
-5. **Exibição para teste:** os valores armazenados são impressos no terminal para permitir a verificação da geração.
-6. **Menu final:** o jogador pode escolher jogar novamente, trocar a dificuldade ou encerrar o programa.
-
-**Importante:** a exibição dos valores secretos é, neste momento, uma etapa de teste. Ela deverá ser removida ou ocultada quando a lógica de palpites estiver implementada. As opções “Jogar novamente” e “Trocar dificuldade” atualmente retornam ao início do laço, onde a dificuldade é solicitada novamente.
+As dicas são fornecidas de forma indireta, sem revelar as posições dos números corretos, tornando o jogo um desafio de dedução e raciocínio lógico.
 
 ## Dificuldades
 
-| Opção | Nível | Quantidade de valores secretos |
-|---|---|---:|
-| 1 | Normal | 3 |
-| 2 | Médio | 6 |
-| 3 | Difícil | 12 |
+| Dificuldade | Números na sequência | Tentativas |
+|:---:|:---:|:---:|
+| Normal | 3 | 4 |
+| Médio | 6 | 6 |
+| Difícil | 12 | 8 |
 
-Cada valor gerado está no intervalo de **1 a 4**.
+Todos os números gerados pertencem ao intervalo de **1 a 4**, simulando os resultados possíveis de um dado de quatro lados (D4).
+
+## Funcionalidades
+
+- Geração de sequências aleatórias.
+- Três níveis de dificuldade.
+- Quantidade variável de números conforme o nível escolhido.
+- Recebimento e validação dos palpites do jogador.
+- Tratamento de entradas inválidas e não numéricas.
+- Comparação entre a sequência secreta e a tentativa do jogador.
+- Contagem de números corretos, acima e abaixo do valor secreto.
+- Sistema de dicas indiretas, sem revelar posições.
+- Controle de tentativas restantes.
+- Condições de vitória e derrota.
+- Possibilidade de iniciar uma nova partida.
 
 ## Estrutura do projeto
 
 ```text
 Jogo-dos-Dados/
-├── main.c    # Fluxo principal, inicialização, dificuldade e controle dos menus
-├── jogo.c    # Implementação da geração dos números aleatórios
-├── jogo.h    # Protótipo das funções relacionadas ao jogo
-├── menu.c    # Menus de dificuldade e de encerramento/continuação
-├── menu.h    # Protótipos das funções de menu
+├── main.c    # Fluxo principal e controle das partidas
+├── jogo.c   # Geração, entrada, validação e comparação dos números
+├── jogo.h   # Declarações das funções relacionadas ao jogo
+├── menu.c   # Menus de dificuldade e opções ao final da partida
+├── menu.h   # Declarações das funções de menu
 └── README.md
 ```
 
 ### Responsabilidade dos arquivos
 
-- **`main.c`**: controla o fluxo principal, inicializa o gerador aleatório, recebe a dificuldade, define a quantidade de valores e chama as funções dos outros módulos.
-- **`jogo.c`**: implementa `numAleatorio()`, que gera números entre o mínimo e o máximo informados e os armazena no vetor recebido.
-- **`jogo.h`**: declara a função `numAleatorio()` para que ela possa ser utilizada em outros arquivos.
-- **`menu.c`**: implementa os menus de seleção de dificuldade e de opções ao final da rodada.
-- **`menu.h`**: declara as funções de menu.
+| Arquivo | Responsabilidade |
+|---|---|
+| `main.c` | Controla o fluxo do programa, dificuldades, tentativas, resultados e partidas. |
+| `jogo.c` | Implementa a geração aleatória, entrada dos palpites, validação e comparação das sequências. |
+| `jogo.h` | Declara as funções utilizadas pelo módulo de jogo. |
+| `menu.c` | Implementa os menus de seleção de dificuldade e continuidade da partida. |
+| `menu.h` | Declara as funções relacionadas aos menus. |
 
-## Caso escolha compilar
+## Como executar
 
-### Requisitos
+### Pré-requisitos
 
-- Um compilador C, como o GCC;
-- Um terminal ou ambiente de desenvolvimento compatível.
+- Compilador C, como o GCC.
+- Terminal ou ambiente de desenvolvimento compatível.
 
-Na pasta do projeto, compile os arquivos `.c`:
+### Compilação
+
+Na pasta raiz do projeto, execute:
 
 ```bash
 gcc *.c -o d4
 ```
 
-Execute no Windows:
+### Execução
+
+**Windows:**
 
 ```bash
 d4.exe
 ```
 
-Execute no Linux:
+**Linux:**
 
 ```bash
 ./d4
 ```
 
-OBS: Também é possível utilizar um compilador online de C, como o GDB Online, copiando os arquivos-fonte do projeto.
+Também é possível compilar e executar o projeto utilizando compiladores online de C, desde que todos os arquivos-fonte sejam incluídos.
 
-## Próximas etapas
+## Próximos passos
 
-A próxima etapa de desenvolvimento é implementar a interação principal do jogo, começando pelo vetor de tentativas do jogador.
-
-O planejamento atual é:
-
-1. Criar o vetor `tentativa[12]`, utilizando apenas a quantidade de posições correspondente à dificuldade selecionada.
-2. Receber os valores informados pelo jogador.
-3. Comparar cada palpite com os valores armazenados em `secreto`.
-4. Contar os acertos.
-5. Gerar dicas indiretas, indicando quantos valores estão acima ou abaixo dos valores secretos, sem revelar diretamente a posição correspondente.
-6. Verificar se a combinação foi descoberta e controlar a condição de vitória.
-7. Integrar o ciclo de tentativas ao fluxo principal e ajustar o menu final para o funcionamento completo da partida.
+- Aprimorar a interface e a experiência do jogador.
+- Refatorar partes do código para melhorar legibilidade e manutenção.
+- Desenvolver uma interface gráfica utilizando HTML, CSS e JavaScript.
+- Integrar a lógica desenvolvida em C à uma versão web utilizando WebAssembly.
 
 ## Estado do desenvolvimento
 
-| Funcionalidade | Situação |
-|---|---|
-| Geração de números aleatórios | Implementada |
-| Armazenamento no vetor `secreto` | Implementado |
-| Seleção de dificuldade | Implementada |
-| Quantidade variável de valores (3, 6 ou 12) | Implementada |
-| Modularização inicial (`jogo` e `menu`) | Implementada |
-| Menu para continuar ou encerrar | Implementado |
-| Entrada das tentativas do jogador | Pendente |
-| Comparação entre palpites e valores secretos | Pendente |
-| Contagem de acertos e dicas | Pendente |
-| Verificação de vitória | Pendente |
+| Funcionalidade | Status |
+|---|:---:|
+| Geração de números aleatórios | ✅ |
+| Seleção de dificuldade | ✅ |
+| Sequências de tamanho variável | ✅ |
+| Entrada de palpites | ✅ |
+| Validação de valores entre 1 e 4 | ✅ |
+| Tratamento de entradas inválidas | ✅ |
+| Comparação de sequências | ✅ |
+| Sistema de dicas | ✅ |
+| Contagem de tentativas | ✅ |
+| Condições de vitória e derrota | ✅ |
+| Menu para novas partidas | ✅ |
+| Interface web | 🔄 Planejada |
 
 ---
 
-Projeto em desenvolvimento. O README será atualizado conforme novas funcionalidades forem implementadas.
+> Projeto desenvolvido com o objetivo de consolidar conhecimentos em lógica de programação e linguagem C, evoluindo gradualmente para novas funcionalidades e interfaces.
